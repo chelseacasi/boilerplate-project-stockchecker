@@ -11,8 +11,10 @@ const runner            = require('./test-runner');
 const app = express();
 
 const helmet = require('helmet');
+app.set('trust proxy', true);
 
 app.use(helmet.contentSecurityPolicy({
+  useDefaults: false,
   directives: {
     defaultSrc: ["'self'"],
     scriptSrc: ["'self'"],
